@@ -6,7 +6,7 @@ tab delimited.
 """
 
 import xlrd
-book = xlrd.open_workbook("myfile.xls")
+book = xlrd.open_workbook("2XL_VM_details.xlsx")
 print("The number of worksheets is {0}".format(book.nsheets))
 print("Worksheet name(s): {0}".format(book.sheet_names()))
 sh = book.sheet_by_index(0)
