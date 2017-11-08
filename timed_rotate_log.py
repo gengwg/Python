@@ -1,5 +1,11 @@
 # Rotate the logs based on some time interval (TimedRotatingFileHandler)
 # https://www.blog.pythonlibrary.org/2014/02/11/python-how-to-create-rotating-logs/
+#
+# backupCount in number of old log files to keep
+#
+# Roll over at midnight:
+#   when=''midnight
+
 import logging
 import time
 
