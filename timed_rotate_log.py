@@ -3,6 +3,17 @@
 #
 # backupCount in number of old log files to keep
 #
+# Current 'when' events supported:
+#   S - Seconds
+#   M - Minutes
+#   H - Hours
+#   D - Days
+#   midnight - roll over at midnight
+#   W{0-6} - roll over on a certain day; 0 - Monday
+#
+# Case of the 'when' specifier is not important; lower or upper case
+# will work.
+#
 # Roll over at midnight:
 #   when=''midnight
 
