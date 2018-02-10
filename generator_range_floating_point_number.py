@@ -1,3 +1,4 @@
+# a generator producing range of floating point numbers
 def frange(start, stop, increment):
     x = start
     while x < stop:
