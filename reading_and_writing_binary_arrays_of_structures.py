@@ -1,3 +1,7 @@
+'''
+read write binary array of uniform structures into python tuples
+'''
+
 from struct import Struct
 
 def write_records(records, format, f):
