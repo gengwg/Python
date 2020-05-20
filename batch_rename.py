@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+
+"""
+Problem:
+
+I have the following files in current directory. Rename them after the 2nd underscore:
+
+Examples:
+
+New name: FastGrowthSlowGrowth-RateOfGrowthOfContinuousProcesses.pdf
+Original name: _95ef7c80e32e7a1203712f86b5d74b33_TangentLines-SlopeGraphPoint.pdf
+New name: TangentLines-SlopeGraphPoint.pdf
+Original name: _5d3933c059f2e20980642e13b431ffa5_BasicProbabilityDefinitions-JointProbabilities.pdf
+New name: BasicProbabilityDefinitions-JointProbabilities.pdf
+Original name: _5c380f7ae2120d9a058f2121ca16450d_SigmaNotation-Mean_Variance.pdf
+New name: SigmaNotation-Mean_Variance.pdf
+
+_66a32d5d98b44b7f36c4facc82b28c64_ProblemSolvingMethods-SumRuleConditionalProbabilityProductRule.pdf
+_fe86e625e3b9a2ff6c9f93cd22f5d5b9_Functions-IncreasingDecreasing.pdf
+_df8605f267506ced90f8f4d6503d61fc_ProblemSolvingMethods-UsingFactorialAndMChooseN.pdf
+_f46555f434a815e5d74a1c855b2450b9_FastGrowthSlowGrowth-LogarithmsExponents.pdf
+_f46555f434a815e5d74a1c855b2450b9_FastGrowthSlowGrowth-ChangeOfBaseFormula.pdf
+_fe86e625e3b9a2ff6c9f93cd22f5d5b9_Functions-Mapping.pdf
+_7179bc2d2e1e55d96dc152ad794ea383_Sets-MedicalTestingExample.pdf
+_4f718cec151c75395d5800d4a2c2e5ef_CartesianPlane-SlopeInterceptFormula.pdf
+_4334954bdff400d6e1779eef8367ea12_SigmaNotation-SimplificationRules.pdf
+_5d3933c059f2e20980642e13b431ffa5_BayesTheoremPart2.pdf
+_fe86e625e3b9a2ff6c9f93cd22f5d5b9_Functions-CompositionInverse.pdf
+_5d3933c059f2e20980642e13b431ffa5_BayesTheoremPart1.pdf
+_acd8d21669d3d242d1e906a877cf43eb_Sets-VennDiagrams.pdf
+_4334954bdff400d6e1779eef8367ea12_Numbers-TheRealNumberLine.pdf
+_4334954bdff400d6e1779eef8367ea12_Numbers-GreaterThanLessThan.pdf
+_786ad069dcc46ad0c80839351fc0d3b8_CartesianPlane-PointSlopeFormula.pdf
+_e298812b1585321e22cc2076272b814d_CartesianPlane-DistanceFormula.pdf
+_5d3933c059f2e20980642e13b431ffa5_BinomialTheoremAndBayesTheorem.pdf
+_fe86e625e3b9a2ff6c9f93cd22f5d5b9_Functions-Graphing.pdf
+_0315e57d9d25bf583b80957047b9a00d_TangentLines-DerivativeFunction.pdf
+_79ff79373ffdd540a55dfd61959e785f_Numbers-Intervals.pdf
+_4334954bdff400d6e1779eef8367ea12_SigmaNotation-IntroToSummation.pdf
+_f46555f434a815e5d74a1c855b2450b9_FastGrowthSlowGrowth-UsingIntegerExponents.pdf
+_4c05db763e1db34fe08dd23e35bf1e19_BasicProbabilityDefinitions-ProbabilityDefinitionsAndNotation.pdf
+_400a0aa9b9b5124f2ee2ab29cc65c218_Sets-BasicsAndVocabulary.pdf
+_f46555f434a815e5d74a1c855b2450b9_FastGrowthSlowGrowth-SimplificationRulesAlgebra.pdf
+_49c8dbb6b2a62ee45c0617916290f1cf_CartesianPlane-PlottingPoints.pdf
+_929e57f958dede773dc7489c5a08647d_ProblemSolvingMethods-PermutationsAndCombinations.pdf
+_4334954bdff400d6e1779eef8367ea12_Numbers-AlgebraWithInequalities.pdf
+_f46555f434a815e5d74a1c855b2450b9_FastGrowthSlowGrowth-RateOfGrowthOfContinuousProcesses.pdf
+_95ef7c80e32e7a1203712f86b5d74b33_TangentLines-SlopeGraphPoint.pdf
+_5d3933c059f2e20980642e13b431ffa5_BasicProbabilityDefinitions-JointProbabilities.pdf
+_5c380f7ae2120d9a058f2121ca16450d_SigmaNotation-Mean_Variance.pdf
+"""
+
+import os
+
+
+for f in os.listdir("."):
+    if f.endswith(".pdf"):
+        print("Original name: {}".format(f))
+        print("New name: {}".format(f.split("_", 2)[2]))
+        os.rename(f, f.split("_", 2)[2])
