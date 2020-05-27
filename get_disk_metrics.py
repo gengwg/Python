@@ -30,7 +30,7 @@ for x in df.stdout:
     # /dev/vda1 --> dev_vda1
     metric = {
         "name": NAME.format("_".join(mountpoint.split("/")[1:])),
-        "value": percent[:-1],
+        "value": percent[:-1],  # remove %
     }
     data.append(metric)
 
