@@ -2,13 +2,33 @@
 Python Cookbooks and Examples
 
 
-### Creating virtual environments
+## Creating virtual environments
+
+### Install venv
+
+On Ubuntu/Debian:
 
 ```
+apt-get install python3-venv
+```
+
+On CentOS 7, it's already installed together with the python3 package.
+
+### Create virtual environments
+
+```bash
 python3 -m venv myvenv
 # or equivalent
 pyvenv myvenv
+
 source myvenv/bin/activate
+
+# upgrade pip3
+(myvenv) user@host:~$ pip3 --version
+pip 9.0.1 from /home/pi/myvenv/lib/python3.5/site-packages (python 3.5)
+(myvenv) user@host:~$ python3 -m pip install --upgrade pip
+(myvenv) user@host:~$ pip3 --version
+pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
 (myvenv) user@host:~$ pip3 install requests
 ```
 
