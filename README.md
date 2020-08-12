@@ -17,11 +17,14 @@ On CentOS 7, it's already installed together with the python3 package.
 ### Create virtual environments
 
 ```bash
+# create virtual env
 python3 -m venv myvenv
 # or equivalent
 pyvenv myvenv
 
-source myvenv/bin/activate
+# activate virtual env
+pi@host:~$ source myvenv/bin/activate
+(myvenv) pi@host:~$
 
 # upgrade pip3
 (myvenv) user@host:~$ pip3 --version
@@ -37,6 +40,10 @@ pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
 
 # test import installed package
 (myvenv) pi@host:~$ python3 -c 'import requests'
+
+# deactivate virtual env
+(myvenv) pi@host:~$ deactivate
+pi@host:~$
 ```
 
 The trailing comma has no special meaning in a list or dictionary, but can be useful when using source code change management tools.
