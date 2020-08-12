@@ -1,10 +1,15 @@
 # Python
 Python Cookbooks and Examples
 
+
+### Creating virtual environments
+
 ```
 python3 -m venv myvenv
 # or equivalent
 pyvenv myvenv
+source myvenv/bin/activate
+(myvenv) user@host:~$ pip3 install requests
 ```
 
 The trailing comma has no special meaning in a list or dictionary, but can be useful when using source code change management tools.
