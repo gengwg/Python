@@ -29,7 +29,14 @@ pip 9.0.1 from /home/pi/myvenv/lib/python3.5/site-packages (python 3.5)
 (myvenv) user@host:~$ python3 -m pip install --upgrade pip
 (myvenv) user@host:~$ pip3 --version
 pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
+
+# install package example
+(myvenv) pi@host:~$ python3 -m pip install requests
+# or equivalent
 (myvenv) user@host:~$ pip3 install requests
+
+# test import installed package
+(myvenv) pi@host:~$ python3 -c 'import requests'
 ```
 
 The trailing comma has no special meaning in a list or dictionary, but can be useful when using source code change management tools.
