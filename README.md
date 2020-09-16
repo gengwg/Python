@@ -59,3 +59,22 @@ a_value = {
 }
 ```
 
+```
+ImportError: No module named mysql.connector
+```
+
+===>
+
+```
+python3 -m pip install mysql-connector-python
+```
+
+Start a simple HTTP server:
+
+```
+# Python 2.7
+python -m SimpleHTTPServer 7777
+
+# Python 3
+python -m http.server 7777
+```
