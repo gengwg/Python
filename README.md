@@ -46,6 +46,8 @@ pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
 pi@host:~$
 ```
 
+## Notes
+
 The trailing comma has no special meaning in a list or dictionary, but can be useful when using source code change management tools.
 
 The trailing comma can be helpful in minimising how many lines changed when adding new lines; adding an additional line to a dictionary with a trailing comma would not change the last existing entry:
@@ -69,7 +71,7 @@ ImportError: No module named mysql.connector
 python3 -m pip install mysql-connector-python
 ```
 
-Start a simple HTTP server:
+### Start a simple HTTP server
 
 ```
 # Python 2.7
@@ -77,4 +79,10 @@ python -m SimpleHTTPServer 7777
 
 # Python 3
 python -m http.server 7777
+```
+
+### pip install requirements.txt
+
+```
+python3 -m pip install -r requirements.txt
 ```
