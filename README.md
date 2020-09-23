@@ -86,3 +86,25 @@ python -m http.server 7777
 ```
 python3 -m pip install -r requirements.txt
 ```
+
+### Always get short hostname
+
+`socket.gethostname()` on some hosts get FQDN, on others it gets short hostname. To only get short host name:
+
+```
+import socket
+socket.gethostname().split('.', 1)[0]
+```
+
+### mysql.connector error
+
+```
+ImportError: No module named mysql.connector
+```
+
+===>
+
+```
+python3 -m pip install mysql-connector-python
+```
+
