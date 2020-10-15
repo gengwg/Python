@@ -108,3 +108,18 @@ ImportError: No module named mysql.connector
 python3 -m pip install mysql-connector-python
 ```
 
+```
+>>> time.struct_time(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: structseq() takes at most 2 arguments (9 given)
+```
+
+===>
+
+```
+>>> dict(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1).values()
+dict_values([2020, 10, 9, 0, 28, 35, 4, 283, -1])
+>>> time.struct_time(dict(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1).values())
+time.struct_time(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1)
+```
