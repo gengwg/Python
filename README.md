@@ -93,6 +93,15 @@ socket.gethostname().split('.', 1)[0]
 0
 ```
 
+### Insert to beginning of list
+
+```
+>>> array = [1, 2, 3, 4]
+>>> array.insert(0, 5)
+>>> array
+[5, 1, 2, 3, 4]
+```
+
 ## Errors
 
 ### mysql.connector error
