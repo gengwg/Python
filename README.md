@@ -61,16 +61,6 @@ a_value = {
 }
 ```
 
-```
-ImportError: No module named mysql.connector
-```
-
-===>
-
-```
-python3 -m pip install mysql-connector-python
-```
-
 ### Start a simple HTTP server
 
 ```
@@ -95,6 +85,15 @@ python3 -m pip install -r requirements.txt
 import socket
 socket.gethostname().split('.', 1)[0]
 ```
+
+### Safe max() for empty lists
+
+```
+>>> max([], default=0)
+0
+```
+
+## Errors
 
 ### mysql.connector error
 
