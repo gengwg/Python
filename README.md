@@ -102,6 +102,16 @@ socket.gethostname().split('.', 1)[0]
 [5, 1, 2, 3, 4]
 ```
 
+### Sort Dictionary by Value in Descending Order
+
+```
+orders = {"cappuccino": 54, "latte": 56, "espresso": 72, "americano": 48, "cortado": 41}
+
+print({k: v for k, v in sorted(orders.items(), key=lambda x: x[1], reverse=True)})
+# [print(k, v) for k, v in sorted(orders.items(), key=lambda x: x[1], reverse=True)]
+
+```
+
 ## Errors
 
 ### mysql.connector error
