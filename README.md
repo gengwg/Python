@@ -112,6 +112,26 @@ print({k: v for k, v in sorted(orders.items(), key=lambda x: x[1], reverse=True)
 
 ```
 
+### Print ASCII non-printable characters
+
+```
+>>> print(b'hi\n'.decode('ascii'))
+hi
+
+>>> print(b'hi\n')
+b'hi\n'
+```
+
+### Split text after the second occurrence of character
+
+```
+>>> a = "some-sample-filename-to-split"
+>>> "-".join(a.split("-", 2)[:2])
+'some-sample'
+>>> a.split("-", 2)[2]
+'filename-to-split'
+```
+
 ## Errors
 
 ### mysql.connector error
