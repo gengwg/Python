@@ -8,6 +8,10 @@
 # $ ./get_ips_from_hostname.py 163.com
 # 123.58.180.8
 # 64:ff9b::7b3a:b407
+# $ ./get_ips_from_hostname.py google.com
+# 64.233.180.139
+# 2607:f8b0:4003:c0b::8a
+
 
 import socket
 
