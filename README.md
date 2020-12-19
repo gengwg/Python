@@ -86,6 +86,21 @@ import socket
 socket.gethostname().split('.', 1)[0]
 ```
 
+### Format string using named parameters
+
+```
+import socket
+
+sql = 'INSERT INTO table (hostname, ip4addr, label, ip6addr) VALUES ("{hostname}", "{ip4addr}", "infra", "{ip6addr}");'
+
+with open("hosts.txt") as f:
+    for line in f:
+        host = line.strip()
+        ip4 = socket.gethostbyname(host)
+        ip6 = socket.getaddrinfo(host, None, socket.AF_INET6)[0][4][0]
+        print(sql.format(hostname=host, ip4addr=ip4, ip6addr=ip6))
+```
+
 ### Safe max() for empty lists
 
 ```
