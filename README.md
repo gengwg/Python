@@ -137,6 +137,13 @@ hi
 b'hi\n'
 ```
 
+### Print gibberish unicode characters
+
+```
+>>> print(u"\u5DDD\u666E\u88AB\u63A8\u7279\u6C38\u4E45\u5C01\u53F7")
+川普被推特永久封号
+```
+
 ### Split text after the second occurrence of character
 
 ```
