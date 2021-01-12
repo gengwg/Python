@@ -180,7 +180,28 @@ import datetime
 now = datetime.datetime.now()
 
 print(f'{now:%Y-%m-%d %H:%M}')
+# 2021-01-12 12:31
+
+print(f'{now:%B %d, %Y}')
+# January 12, 2021
 ```
+
+### Datetime
+
+datetime.datetime.now() takes tzinfo as keyword argument but datetime.today() does not take any keyword arguments.
+
+By default, now() executes with datetime.datetime.now(tz=None)
+
+```python
+>>> import pytz
+>>> datetime.datetime.now(tz=pytz.timezone('US/Eastern'))
+datetime.datetime(2021, 1, 12, 15, 33, 5, 893121, tzinfo=<DstTzInfo 'US/Eastern' EST-1 day, 19:00:00 STD>)
+>>> datetime.datetime.today(tz=pytz.timezone('US/Eastern'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: today() takes no keyword arguments
+```
+
 ## Errors
 
 ### mysql.connector error
