@@ -154,6 +154,33 @@ b'hi\n'
 'filename-to-split'
 ```
 
+### f-strings
+
+Python f-strings are available since Python 3.6. The string has the f prefix and uses {} to evaluate variables.
+
+```python
+name = 'Peter'
+age = 23
+
+print('%s is %d years old' % (name, age))
+print('{} is {} years old'.format(name, age))
+print(f'{name} is {age} years old')
+
+
+bags = 3
+apples_in_bag = 12
+
+print(f'There are total of {bags * apples_in_bag} apples')
+# There are total of 36 apples
+
+# format_datetime.py
+
+import datetime
+
+now = datetime.datetime.now()
+
+print(f'{now:%Y-%m-%d %H:%M}')
+```
 ## Errors
 
 ### mysql.connector error
