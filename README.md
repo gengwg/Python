@@ -186,6 +186,14 @@ print(f'{now:%B %d, %Y}')
 # January 12, 2021
 ```
 
+#### List members of a Unix group name
+
+```py
+import grp
+print(grp.getgrnam('docker').gr_mem)
+# ['username1']
+```
+
 ### Datetime
 
 datetime.datetime.now() takes tzinfo as keyword argument but datetime.today() does not take any keyword arguments.
