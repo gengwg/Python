@@ -210,6 +210,20 @@ Traceback (most recent call last):
 TypeError: today() takes no keyword arguments
 ```
 
+### Get IPv6 address
+
+This follows nsswitch.conf, e.g. search `/etc/hosts` first.
+
+```
+>>> import socket
+>>> socket.getaddrinfo('google.com', None, socket.AF_INET6)
+[(<AddressFamily.AF_INET6: 10>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('2401:db00:25ff:c83::', 0, 0, 0)), (<AddressFamily.AF_INET6: 10>, <SocketKind.SOCK_DGRAM: 2>, 17, '', ('2401:db00:25ff:c83::', 0, 0, 0)), (<AddressFamily.AF_INET6: 10>, <SocketKind.SOCK_RAW: 3>, 0, '', ('2401:db00:25ff:c83::', 0, 0, 0))]
+
+# Real DNS IP
+$ dig AAAA google.com +short
+2607:f8b0:400a:80a::200e
+```
+
 ## Errors
 
 ### mysql.connector error
