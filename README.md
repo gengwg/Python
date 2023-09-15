@@ -186,7 +186,7 @@ print(f'{now:%B %d, %Y}')
 # January 12, 2021
 ```
 
-#### List members of a Unix group name
+### List members of a Unix group name
 
 ```py
 import grp
@@ -222,6 +222,19 @@ This follows nsswitch.conf, e.g. search `/etc/hosts` first.
 # Real DNS IP
 $ dig AAAA google.com +short
 2607:f8b0:400a:80a::200e
+```
+
+### sort a dictionary by value
+
+```
+>>> x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+>>> sorted(x.items(), key=lambda z: z[1])
+[(0, 0), (2, 1), (1, 2), (4, 3), (3, 4)]
+>>> [(k,v) for k,v in sorted(x.items(), key=lambda z: z[1])]
+[(0, 0), (2, 1), (1, 2), (4, 3), (3, 4)]
+# get keys only
+>>> [k for k,v in sorted(x.items(), key=lambda z: z[1])]
+[0, 2, 1, 4, 3]
 ```
 
 ## Errors
