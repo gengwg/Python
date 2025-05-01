@@ -250,6 +250,17 @@ $ python3 -m pip install --user pygame
 $ sudo apt install python3-pip
 ```
 
+```
+$ python3 -m pip install --user pygame
+error: externally-managed-environment
+```
+
+Thiss error occurs because newer versions of Python on Debian/Ubuntu systems block user/global pip installations by default (PEP 668) to prevent conflicts with system packages. Here's how to  resolve it:
+
+```
+sudo apt install python3-pygame
+```
+
 ## Errors
 
 ### mysql.connector error
