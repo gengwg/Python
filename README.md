@@ -237,6 +237,19 @@ $ dig AAAA google.com +short
 [0, 2, 1, 4, 3]
 ```
 
+### Install pip module
+
+```
+$ python3 -m pip install --user pygame
+/usr/bin/python3: No module named pip
+```
+
+===>
+
+```
+$ sudo apt install python3-pip
+```
+
 ## Errors
 
 ### mysql.connector error
