@@ -4,14 +4,19 @@ class Pair:
         self.y = y
 
     def __repr__(self):
-        return 'Pair({0.x!r}, {0.y!r})'.format(self)
-
+        return f"Pair({self.x!r}, {self.y!r})"
+    
     def __str__(self):
-        return '({0.x!s}, {0.y!s})'.format(self)
+        return f"({self.x!s}, {self.y!s})"
+    
+def main():
+    p = Pair(3, 4)
 
-p = Pair(3, 4)
-print(repr(p))
-print(str(p))
+    print(f"p is {p!r}") # Calls __repr__
+    print(f"p is {repr(p)}")  # Explicitly calls __repr__
 
-print('p is {0!r}'.format(p))
-print('p is {0}'.format(p))
+    print(f"p is {p}")  # Calls __str__
+    print(f"p is {str(p)}")  # Explicitly calls __str__ 
+
+if __name__ == "__main__":
+    main()
