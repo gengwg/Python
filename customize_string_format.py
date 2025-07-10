@@ -17,16 +17,17 @@ class Date:
         return fmt.format(d=self)
 
 d = Date(2012, 12, 21)
-print(format(d))
-print(format(d, 'mdy'))
-print('The date is {:ymd}'.format(d))
-print('The date is {:mdy}'.format(d))
+print(f'{d}')
 
+print(f'The date is {d:ymd}.')
+print(f'The date is {d:mdy}.')
+print(f'The date is {d:dmy}.')
 
+# Example of using format with datetime.date
 from datetime import date
 d = date(2012, 12, 21)
-print(format(d))
-print(format(d, '%A, %B %d, %Y'))
+print(f'{d}')
+print(f'{d:%A, %B %d, %Y}')
 print('The end is {:%d %b %Y}. Goodbye'.format(d))
 
 
