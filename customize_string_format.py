@@ -14,6 +14,9 @@ class Date:
         if code == '':
             code = 'ymd'
         fmt = _formats[code]
+        # You cannot directly use f-strings dynamically like this.
+        # f-strings are evaluated at compile time, not runtime.
+        # The current use of str.format() is correct for dynamic formatting.
         return fmt.format(d=self)
 
 d = Date(2012, 12, 21)
@@ -25,9 +28,9 @@ print(f'The date is {d:dmy}.')
 
 # Example of using format with datetime.date
 from datetime import date
-d = date(2012, 12, 21)
-print(f'{d}')
-print(f'{d:%A, %B %d, %Y}')
-print('The end is {:%d %b %Y}. Goodbye'.format(d))
+d2 = date(2012, 12, 21)
+print(f'{d2}')
+print(f'{d2:%A, %B %d, %Y}')
+print('The end is {:%d %b %Y}. Goodbye'.format(d2))
 
 
