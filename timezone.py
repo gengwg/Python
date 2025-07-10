@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from pytz import timezone
+import pytz
 
 # Get the current datetime
 d = datetime.now()
@@ -29,3 +30,19 @@ print(later_wrong)
 later = west.normalize(d_west + timedelta(hours=1))
 # later = west.normalize(later_wrong)
 print(later)
+
+# Common strategy is to convert all dates to UTC before performing arithmetic
+# and then convert back to the desired timezone.
+
+# Convert to UTC
+d_utc = d_west.astimezone(pytz.utc)
+print(d_utc)
+
+# Add an hour in UTC
+later_utc = d_utc + timedelta(hours=1)
+# Convert back to the original timezone
+print(later_utc.astimezone(west))
+
+# List all timezones in a country
+print(pytz.country_timezones('CN'))  # List timezones for China
+print(pytz.country_timezones('US'))  # List timezones for the US
