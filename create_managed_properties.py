@@ -5,9 +5,9 @@ class Person:
         # In Python, when you define a property using the `@property` decorator along with a setter (using `@<property_name>.setter`), 
         # assignments to that property (like `self.first_name = first_name`) will automatically call the setter method 
         # instead of directly setting the attribute.
-        self.first_name = first_name 
+        self._first_name = first_name 
 
-    # getter function
+    # getter function (optional)
     @property
     def first_name(self):
         return self._first_name
