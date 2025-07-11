@@ -46,7 +46,46 @@ except AttributeError as e:
     print(e)
 
 
+class SubPerson(Person):
+    @property
+    def first_name(self):
+        print('Getting name')
+        return super().first_name
+
+    @first_name.setter
+    def first_name(self, val):
+        print(f'Setting name to {val}')
+        # super(SubPerson, SubPerson).first_name.fset(self, val)
+        super(SubPerson, SubPerson).first_name.__set__(self, val)
+
+    @first_name.deleter
+    def first_name(self):
+        print('Deleting name')
+        super(SubPerson, SubPerson).first_name.fdel(self)
+
+s = SubPerson('Guido') # calls the setter, which prints 'Setting name'
+print(s.first_name)  # calls the getter, which prints 'Getting name'
+s.first_name = 'Wei'  # calls the setter, which prints 'Setting name'
+print(s.first_name)  # calls the getter, which prints 'Getting name'
+try:
+    s.first_name = 43  # calls the setter, which raises TypeError
+except TypeError as e:
+    print(e)
+
+
 import math
+
+# The Circle class demonstrates how to use properties to manage access to instance attributes
+# and provide computed values that depend on those attributes.
+# The Circle class has a radius attribute, and properties for area and perimeter that are calculated based on the radius.
+# The @property decorator allows you to define methods that can be accessed like attributes
+# without needing to call them as methods (i.e., without parentheses).
+# This is useful for creating read-only attributes or computed properties that depend on other attributes.
+# The area and perimeter properties are calculated dynamically based on the radius,
+# so if the radius changes, the area and perimeter will automatically reflect that change.
+# This is a common pattern in Python to encapsulate behavior and provide a clean interface for users
+# of the class, allowing them to access computed values without needing to know the underlying implementation details
+# or how those values are calculated.
 class Circle:
     def __init__(self, radius):
         self.radius = radius
