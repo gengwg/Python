@@ -261,21 +261,32 @@ Thiss error occurs because newer versions of Python on Debian/Ubuntu systems blo
 sudo apt install python3-pygame
 ```
 
+### **Difference: Attribute vs Property**  
+
+1. **Instance Attribute**:  
+   - Simple variable stored directly in the object.  
+   - Can be accessed/modified directly (e.g., `dog1.name = "Max"`).  
+   - No built-in control over getting/setting.  
+
+2. **Property (with `@property` decorator)**:  
+   - Acts like an attribute but is controlled by getter/setter methods.  
+   - Allows validation, computed values, or access control.  
+
 ## Errors
 
 ### mysql.connector error
 
-```
+```sh
 ImportError: No module named mysql.connector
 ```
 
 ===>
 
-```
+```sh
 python3 -m pip install mysql-connector-python
 ```
 
-```
+```sh
 >>> time.struct_time(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -284,7 +295,7 @@ TypeError: structseq() takes at most 2 arguments (9 given)
 
 ===>
 
-```
+```py
 >>> dict(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1).values()
 dict_values([2020, 10, 9, 0, 28, 35, 4, 283, -1])
 >>> time.struct_time(dict(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=0, tm_min=28, tm_sec=35, tm_wday=4, tm_yday=283, tm_isdst=-1).values())
