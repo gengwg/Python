@@ -7,7 +7,7 @@ class Structure:
         if len(args) != len(self._fields):
             raise TypeError('Expected {} arguments'.format(len(self._fields)))
 
-        # set the arguments
+        # using setattr() to set attributes **dynamically**
         for name, val in zip(self._fields, args):
             setattr(self, name, val)
 
