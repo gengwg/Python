@@ -2,7 +2,7 @@ class LoggedMappingMixin:
     '''
     add loggingto get, set, and del methods
     '''
-    __slots__ = () 
+    __slots__ = () # Using __slots__ to prevent dynamic attribute creation
 
     def __getitem__(self, key):
         value = super().__getitem__(key)
@@ -23,6 +23,7 @@ class SetOnceMappingMixin:
     only allow setting a key once
     '''
     __slots__ = ()
+
     def __setitem__(self, key, value):
         if key in self:
             raise KeyError(f"Key '{key}' already set. Cannot overwrite.")
@@ -81,3 +82,42 @@ if __name__ == "__main__":
         d3['a'] = 3  # This should raise a KeyError
     except KeyError as e:
         print(e)
+
+    def LoggedMapping(cls):
+        '''
+        Decorator to add logging to a mapping class
+        '''
+        cls_getitem = cls.__getitem__
+        cls_setitem = cls.__setitem__
+        cls_delitem = cls.__delitem__
+
+        def __getitem__(self, key):
+            value = cls_getitem(self, key)
+            print(f"Getting item: {key} -> {value}")
+            return cls_getitem(self, key)
+        
+        def __setitem__(self, key, value):
+            print(f"Setting item: {key} -> {value}")
+            cls_setitem(self, key, value)
+
+        def __delitem__(self, key):
+            print(f"Deleting item: {key}")
+            cls_delitem(self, key)
+
+        cls.__getitem__ = __getitem__
+        cls.__setitem__ = __setitem__
+        cls.__delitem__ = __delitem__
+
+        return cls
+    
+    # Example usage of the decorator
+    # You get the same functionality as LoggedMappingMixin
+    # but multiple inheritance is no longer needed.
+    @LoggedMapping
+    class LoggedDict2(dict):
+        pass
+
+    d4 = LoggedDict2()
+    d4['a'] = 1
+    print(d4['a'])
+    del d4['a']
