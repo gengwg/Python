@@ -77,6 +77,41 @@ class EvaluateVisitor(Visitor):
     def visit_Negate(self, node):
         return -self.visit(node.operand)
     
+# Visitor for generating stack code
+class StackCode(Visitor):
+    def generate_code(self, node):
+        self.instructions = []
+        self.visit(node)
+        return self.instructions
+    
+    def visit_Number(self, node):
+        self.instructions.append(('PUSH', node.value))
+
+    def binop(self, node, instruction):
+        self.visit(node.left)
+        self.visit(node.right)
+        self.instructions.append((instruction,))
+
+    def visit_Add(self, node):
+        self.binop(node, 'ADD')
+
+    def visit_Subtract(self, node):
+        self.binop(node, 'SUB') 
+
+    def visit_Multiply(self, node):
+        self.binop(node, 'MUL')
+
+    def visit_Divide(self, node):
+        self.binop(node, 'DIV')
+
+    def visit_Negate(self, node):
+        self.visit(node.operand)
+        self.instructions.append('NEG')
+
+    def unaryop(self, node, instruction):
+        self.visit(node.operand)
+        self.instructions.append((instruction,))
+
 if __name__ == "__main__":
 
     # Example usage of the visitor pattern
@@ -98,3 +133,10 @@ if __name__ == "__main__":
     negate_node = Negate(Number(10))
     print("Negated value:", evaluate_visitor.visit(negate_node))
     print("Negated expression:", print_visitor.visit(negate_node))
+
+
+    # Example of generating stack code
+    stack_visitor = StackCode()
+    instructions = stack_visitor.generate_code(t4)
+    print("Stack code instructions:")
+    print(instructions)
