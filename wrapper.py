@@ -12,7 +12,10 @@ def timethis(func):
     return wrapper
 
 @timethis
-def countdown(n):
+def countdown(n: int):
+    '''
+    counts down
+    '''
     while n > 0:
         n -= 1
 
@@ -20,4 +23,11 @@ countdown(10000)
 countdown(100000)
 countdown(1000000)
 countdown(10000000)
-countdown(100000000)
+
+print(countdown.__name__)
+print(countdown.__doc__)
+print(countdown.__annotations__)
+print(countdown.__wrapped__)
+
+from inspect import signature
+print(signature(countdown))
