@@ -19,15 +19,13 @@ On CentOS 7, it's already installed together with the python3 package.
 ```bash
 # create virtual env
 python3 -m venv myvenv
-# or equivalent
-pyvenv myvenv
 
 # activate virtual env
-pi@host:~$ source myvenv/bin/activate
+$ source myvenv/bin/activate
 (myvenv) pi@host:~$
 
-# upgrade pip3
-(myvenv) user@host:~$ pip3 --version
+# upgrade pip
+(myvenv) user@host:~$ python3 -m pip --version
 pip 9.0.1 from /home/pi/myvenv/lib/python3.5/site-packages (python 3.5)
 (myvenv) user@host:~$ python3 -m pip install --upgrade pip
 (myvenv) user@host:~$ python3 -m pip --version
@@ -36,14 +34,13 @@ pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
 # install package example
 (myvenv) pi@host:~$ python3 -m pip install requests
 # or equivalent
-(myvenv) user@host:~$ pip3 install requests
+(myvenv) user@host:~$ pip install requests
 
 # test import installed package
 (myvenv) pi@host:~$ python3 -c 'import requests'
 
 # deactivate virtual env
 (myvenv) pi@host:~$ deactivate
-pi@host:~$
 ```
 
 ## Notes
