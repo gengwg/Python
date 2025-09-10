@@ -269,6 +269,27 @@ sudo apt install python3-pygame
    - Acts like an attribute but is controlled by getter/setter methods.  
    - Allows validation, computed values, or access control.  
 
+### Asynchronous execution using threads or processes
+
+1. ThreadPoolExecutor
+
+For I/O-bound operations (like file reading, network requests)
+
+```python
+with futures.ThreadPoolExecutor() as executor:
+    # Use threads for parallel execution
+```
+
+2. ProcessPoolExecutor
+
+For CPU-bound operations (like mathematical computations)
+
+ ```python
+
+with futures.ProcessPoolExecutor() as executor:
+    # Use processes for parallel execution
+```
+
 ## Errors
 
 ### mysql.connector error
