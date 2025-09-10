@@ -1,4 +1,5 @@
 from collections import defaultdict
+from contextlib import contextmanager
 
 class Exchange:
     def __init__(self):
@@ -9,6 +10,16 @@ class Exchange:
 
     def detach(self, task):
         self._subscribers.remove(task)
+
+    @contextmanager
+    def subscribe(self, *tasks):
+        for task in tasks:
+            self.attach(task)
+        try:
+            yield
+        finally:
+            for task in tasks:
+                self.detach(task)
 
     def send(self, msg):
         for subscriber in self._subscribers:
@@ -41,17 +52,7 @@ if __name__ == '__main__':
     task_b = Task('B')
 
     exc = get_exchange('test')
-    exc = get_exchange('test')
     
-    print(callable(Task))
-    print(callable(Exchange))
-    print(_exchanges)
-
-    exc.attach(task_a)
-    exc.attach(task_b)
-
-    exc.send('Hello, World!')
-    exc.send('Goodbye, World!')
-
-    exc.detach(task_a)
-    exc.detach(task_b)
+    with exc.subscribe(task_a, task_b):
+        exc.send('Hello, World!')
+        exc.send('Goodbye, World!')
