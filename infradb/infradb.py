@@ -42,15 +42,17 @@ class InfraDB():
         self.dbhost=dbhost
         self.dbport=dbport
         self.rouser='infradb_ro'
-        self.ropassword='ropass'
+        self.ropassword=os.getenv('INFRADB_RO_PASSWORD', 'ropass')
         self.rwuser='infradb_rw'
-        self.rwpassword='kasDFjgr7234DGher78'
+        self.rwpassword=os.getenv('INFRADB_RW_PASSWORD', '')
         self.database='infradb'
         self.table=table
         self.row_start = 0
         self.row_end = limit
         #self.row_end=18446744073709551615   # grab all rows
         self.columns = columns                   # grab all colums
+        self.conn = None
+        self.cur = None
 
         try:
             # infradbdb
@@ -66,9 +68,6 @@ class InfraDB():
 
         except MySQLdb.Error, e:
             print "Error %d: %s" % (e.args[0],e.args[1])
-            self.conn.rollback()
-            self.cur.close()
-            self.conn.close()
             # print lengthy error description!!
             sys.exit(2)
 
@@ -220,7 +219,7 @@ class InfraDB():
 
         macs = []
         for row in self.get_data():
-            macs.append(row['host'])
+            macs.append(row['mac'])
 
         return macs
 
@@ -305,15 +304,6 @@ class InfraDB():
         spares = self.cur.fetchall()
 
         return spares
-
-        for row in spares:
-            #pprint (row)
-            if row['count(1)'] > 20:
-                print 'OK: We still have ' + str(row['count(1)']) + ' spares left for ' + row['sku']
-                #inventory += 'OK: We still have ' + str(row['count(1)']) + ' spares left for ' + row['sku'] + '\n'
-            else:
-                print 'WARN: We have only ' + str(row['count(1)']) + ' machines left for ' + row['sku'] + '!!!\n'
-                #inventory += 'WARN: We have only ' + str(row['count(1)']) + ' machines left for ' + row['sku'] + '!!!<---\n'
 
     def get_spares_count_by_sku(self, sku):
         """function to get number of hosts in a certan given SKU.
@@ -439,9 +429,12 @@ order by c desc
             os.makedirs(TODAYBACKUPPATH)
 
 
-        dumpcmd = "mysqldump --host=" + DB_HOST + " -u " + DB_USER + " -p" + DB_USER_PASSWORD + " " + DB_NAME + " > " + TODAYBACKUPPATH + "/" + DB_NAME + ".sql"
-
-        os.system(dumpcmd)
+        dumpcmd = "mysqldump --host=" + DB_HOST + " -u " + DB_USER + " " + DB_NAME
+        env = dict(os.environ)
+        env['MYSQL_PWD'] = DB_USER_PASSWORD
+        outfile = TODAYBACKUPPATH + "/" + DB_NAME + ".sql"
+        with open(outfile, 'w') as f:
+            subprocess.call(dumpcmd.split(), stdout=f, env=env)
 
         print "Your backups has been created in '" + TODAYBACKUPPATH + "' directory."
 

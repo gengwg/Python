@@ -32,7 +32,7 @@ def main(service_key, desc):
 
 
 if __name__ == '__main__':
-    if not sys.argv[1]:
-        print ("pagerduty service key required")
+    if len(sys.argv) < 3:
+        print ("usage: pagerduty_trigger_event.py <service_key> <description>")
         sys.exit(1)
     main(service_key=sys.argv[1], desc=sys.argv[2])

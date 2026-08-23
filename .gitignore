@@ -99,3 +99,6 @@ ENV/
 .mypy_cache/
 
 *~
+
+# local secrets / config
+data/db_info.yaml

@@ -12,6 +12,7 @@ import re
 import subprocess
 import sys
 import MySQLdb
+from mysql_db_connect_yaml import db_connect
 
 try:
   requests.packages.urllib3.disable_warnings()
@@ -26,6 +27,10 @@ verify = False
 timeout = 30.05
 
 default_bioscfg = 'bios/bios-settings-desired.yaml'
+
+# set these to match entries in data/db_info.yaml and your schema
+db_info_key = 'infradb'
+db_table = 'infradb_flat'
 
 
 
