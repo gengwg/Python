@@ -1,4 +1,4 @@
-from collections import Iterable
+from collections.abc import Iterable
 
 # flatten a nested sequence into a single list of values.
 # recursive generator function involving yield from

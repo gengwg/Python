@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 To loop over two or more sequences at the same time, the entries can be
 paired with the zip() function.

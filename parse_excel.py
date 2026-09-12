@@ -31,5 +31,5 @@ for row in sheet.rows:
     #print '{0}.{1}'.format(row[0].value, row[-1].value)
     #print '{0}.{1}'.format(row[0].value, row[8].value)  # 7356 only
     # colum 0 is host name,  column -1 is domain name
-    print('    "{0}.{1}",'.format(row[0].value, row[-1].value))
+    print(f'    "{row[0].value}.{row[-1].value}",')
     #print row

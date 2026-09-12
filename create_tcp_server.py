@@ -30,7 +30,7 @@ if __name__ == '__main__':
 from socket import socket, AF_INET, SOCK_STREAM
 
 def echo_handler(address, client_sock):
-    print('Got connection from {}'.format(address))
+    print(f'Got connection from {address}')
     while True:
         msg = client_sock.recv(8192)
         if not msg:

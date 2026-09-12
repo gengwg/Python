@@ -112,13 +112,13 @@ class HPiLO:
 
     total_targets = len(targets)
     if verbose:
-        print('%s: Total targets: %s' % (operation, total_targets))
+        print('{}: Total targets: {}'.format(operation, total_targets))
 
     count = 0
     for hosturi in targets:
       count += 1
       if verbose:
-          print('Target: %s  [%s of %s]' % (hosturi, count, total_targets))
+          print('Target: {}  [{} of {}]'.format(hosturi, count, total_targets))
 
       if not self.hosts[hosturi]['sessionpath'] and requireLogin \
               and operation != "login":
@@ -230,7 +230,7 @@ class HPiLO:
     for hosturi in targets:
       uripath = "/rest/v1/systems/1/bios/Settings"
       try:
-        with open(self.hosts[hosturi]['bioscfgpath'], 'r') as f:
+        with open(self.hosts[hosturi]['bioscfgpath']) as f:
           d = yaml.safe_load(f)
         data = json.dumps(d)
         ret.update(self.iLO_operation(

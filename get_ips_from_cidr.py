@@ -46,10 +46,10 @@ net = ip_network(cidr, False)
 inet = ipaddress.ip_interface(cidr)
 net = inet.network
 
-print("INET: {}".format(cidr))
-print("CIDR: {}".format(net))
-print("IP ADDR: {}".format(inet.ip))
-print("Total number of IPs: {}".format(net.num_addresses))
+print(f"INET: {cidr}")
+print(f"CIDR: {net}")
+print(f"IP ADDR: {inet.ip}")
+print(f"Total number of IPs: {net.num_addresses}")
 print("Possible IPs are:")
 for ip in net:
     print(ip)

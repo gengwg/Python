@@ -38,10 +38,10 @@ print(m.groups())
 print(pat.findall(text)) # [('11', '27', '2012'), ('3', '2', '2013')]
 
 for month, day, year in pat.findall(text):
-    print('{}-{}-{}'.format(year, month, day))
+    print(f'{year}-{month}-{day}')
 
 # find matches iteratively
 for m in pat.finditer(text):
     # print m.groups()
     month, day, year = m.groups()
-    print('{}-{}-{}'.format(year, month, day))
+    print(f'{year}-{month}-{day}')

@@ -8,7 +8,7 @@
 # To indicate that a variable or function parameter can be optional, use Optional from typing:
 from typing import Optional
 
-def greet_optional(name: Optional[str] = None) -> str:
+def greet_optional(name: str | None = None) -> str:
     if name is None:
         return "Hello, World!"
     else:

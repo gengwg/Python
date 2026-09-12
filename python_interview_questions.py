@@ -1,6 +1,6 @@
 # 1
 
-class A(object):
+class A:
     def show(self):
         print('base show')
 
@@ -20,7 +20,7 @@ obj.show()
 # 2
 print('-' * 32)
 
-class A(object):
+class A:
     def __init__(self,a,b):
         self.__a = a
         self.__b = b
@@ -38,21 +38,21 @@ a1(80)
 
 # 3
 print('-' * 32)
-class B(object):
+class B:
     def fn(self):
         print('B fn')
     def __init__(self):
         print("B INIT")
 
 
-class A(object):
+class A:
     def fn(self):
         print('A fn')
 
     def __new__(cls,a):
             print("NEW", a)
             if a>10:
-                return super(A, cls).__new__(cls)
+                return super().__new__(cls)
             return B()
 
     def __init__(self,a):
@@ -122,7 +122,7 @@ print(a, b)
 # 7
 print('-' * 32)
 
-class A(object):
+class A:
     def __init__(self,a,b):
         self.a1 = a
         self.b1 = b

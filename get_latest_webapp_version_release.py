@@ -48,7 +48,7 @@ def get_latest_webapp_version(url):
     try:
         data = urllib.request.urlopen(url).read()
         logging.info("Logging in as user %s", username)
-    except IOError as e:
+    except OSError as e:
         logging.error("Couldn't open url: %s %s", url, e.strerror)
         sys.exit(1)
 

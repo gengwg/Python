@@ -8,7 +8,7 @@ class Node:
         self._children = []
 
     def __repr__(self):
-        return 'Node({!r})'.format(self._value)
+        return f'Node({self._value!r})'
         # return 'Node({})'.format(self._value)
 
     def add_child(self, node):

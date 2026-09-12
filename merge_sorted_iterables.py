@@ -14,9 +14,9 @@ for c in heapq.merge(a, b):
     print(c)
 
 # merge two sorted files
-with open('sorted_file_1', 'rt') as file1, \
-     open('sorted_file_2', 'rt') as file2, \
-     open('merged_file', 'wt') as outfile:
+with open('sorted_file_1') as file1, \
+     open('sorted_file_2') as file2, \
+     open('merged_file', 'w') as outfile:
      
      for line in heapq.merge(file1, file2):
          outfile.write(line)

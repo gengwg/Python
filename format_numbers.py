@@ -26,4 +26,4 @@ print(format(x, '0.2e'))
 # general form: '[<>^]?width[,]?(.digits)?'
 
 # same format codes used in .format() method of strings
-print('The value is {:0,.2f}'.format(x))
+print(f'The value is {x:0,.2f}')

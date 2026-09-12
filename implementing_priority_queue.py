@@ -24,7 +24,7 @@ if __name__ == '__main__':
             self.name = name
 
         def __repr__(self):
-            return 'Item({!r})'.format(self.name)
+            return f'Item({self.name!r})'
 
 
     q = PriorityQueue()

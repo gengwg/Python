@@ -21,7 +21,7 @@ class ResultHandler:
         self.sequence = 0
     def handler(self, result):
         self.sequence += 1
-        print('[{}] Got: {}'.format(self.sequence, result))
+        print(f'[{self.sequence}] Got: {result}')
 
 rh = ResultHandler()
 apply_async(add, (2, 3), callback=rh.handler)
@@ -33,7 +33,7 @@ def make_handler():
     def handler(result):
         nonlocal sequence
         sequence += 1
-        print('[{}] Got: {}'.format(sequence, result))
+        print(f'[{sequence}] Got: {result}')
     return handler
 
 handler = make_handler()
@@ -46,7 +46,7 @@ def make_handler():
     while True:
         result = yield
         sequence += 1
-        print('[{}] Got: {}'.format(sequence, result))
+        print(f'[{sequence}] Got: {result}')
 
 handler = make_handler()
 next(handler)
@@ -60,7 +60,7 @@ class SequenceNo:
 
 def handler(result, seq):
     seq.sequence += 1
-    print('[{}] Got: {}'.format(seq.sequence, result))
+    print(f'[{seq.sequence}] Got: {result}')
 
 seq = SequenceNo()
 from functools import partial

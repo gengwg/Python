@@ -2,6 +2,6 @@
 st = "Anurag Gupa <AGupta10@example.com>; Fezal Miza <FMirza@example.com>; Donld Slvia Jr. <Donad.Sivia@xyz.com>; Lar Gln <lary.glnn@jht.com>"
 
 import re
-emails = re.findall("\<(.*?)\>", st)
+emails = re.findall(r"\<(.*?)\>", st)
 for email in emails:
     print(email)

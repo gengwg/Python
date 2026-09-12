@@ -31,7 +31,7 @@ print(element_counts)
 
 from collections import Counter
 
-with open('file.txt', 'r') as f:
+with open('file.txt') as f:
     char_counts = Counter(f.read())
 
 print(char_counts)
@@ -41,7 +41,7 @@ print(char_counts)
 from collections import Counter
 
 word_list = []
-with open('file.txt', 'r') as f:
+with open('file.txt') as f:
     for line in f:
         for word in line.split():
             word_list.append(word.lower())

@@ -5,7 +5,7 @@ class Structure:
     _fields = []
     def __init__(self, *args):
         if len(args) != len(self._fields):
-            raise TypeError('Expected {} arguments'.format(len(self._fields)))
+            raise TypeError(f'Expected {len(self._fields)} arguments')
 
         # using setattr() to set attributes **dynamically**
         for name, val in zip(self._fields, args):
@@ -16,7 +16,7 @@ class Structure2:
     _fields = []
     def __init__(self, *args, **kwargs):
         if len(args) + len(kwargs) != len(self._fields):
-            raise TypeError('Expected {} arguments'.format(len(self._fields)))
+            raise TypeError(f'Expected {len(self._fields)} arguments')
 
         # using setattr() to set attributes **dynamically**
         for name, val in zip(self._fields, args):
@@ -25,7 +25,7 @@ class Structure2:
         # handle keyword arguments
         for name in kwargs:
             if name not in self._fields:
-                raise TypeError('Unexpected keyword argument: {}'.format(name))
+                raise TypeError(f'Unexpected keyword argument: {name}')
             setattr(self, name, kwargs[name])
 
 # example class definitions

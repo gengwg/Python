@@ -16,4 +16,4 @@ content_dict = dict(zip(content[::2], content[1::2]))
 print(content_dict)
 
 for k, v in content_dict.items():
-    print('{}, {}'.format(k, v))
+    print(f'{k}, {v}')
