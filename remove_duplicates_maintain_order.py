@@ -22,11 +22,11 @@ def dedupe(items, key=None):
 
 if __name__ == '__main__':
     a = [1,5,2,1,9,1,5,10]
-    print list(dedupe(a))
+    print(list(dedupe(a)))
     # [1, 5, 2, 9, 10]
 
     b = [{'x': 1, 'y':2},{'x':1, 'y':3}, {'x':1, 'y':2}, {'x':2, 'y':4}]
-    print list(dedupe(b, key=lambda d: (d['x'], d['y'])))
+    print(list(dedupe(b, key=lambda d: (d['x'], d['y']))))
     # [{'y': 2, 'x': 1}, {'y': 3, 'x': 1}, {'y': 4, 'x': 2}]
-    print list(dedupe(b, key=lambda d: d['x']))
+    print(list(dedupe(b, key=lambda d: d['x'])))
     # [{'y': 2, 'x': 1}, {'y': 4, 'x': 2}]

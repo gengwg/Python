@@ -12,7 +12,7 @@ def acquire(*locks):
 
     acquired = getattr(_local, 'acquired', [])
     if acquired and max(id(lock) for lock in acquired) >= id(locks[0]):
-        raise RuntimeError('Lock Order Violation: {} -> {}'.format(acquired[-1], locks[0]))
+        raise RuntimeError(f'Lock Order Violation: {acquired[-1]} -> {locks[0]}')
     
     acquired.extend(locks)
     _local.acquired = acquired

@@ -63,11 +63,11 @@ class InfraDB():
                 try:
                     self.cur = self.conn.cursor(MySQLdb.cursors.DictCursor)
 
-                except Exception, e:
-                    print "Error %d: %s" % (e.args[0],e.args[1])
+                except Exception as e:
+                    print("Error %d: %s" % (e.args[0],e.args[1]))
 
-        except MySQLdb.Error, e:
-            print "Error %d: %s" % (e.args[0],e.args[1])
+        except MySQLdb.Error as e:
+            print("Error %d: %s" % (e.args[0],e.args[1]))
             # print lengthy error description!!
             sys.exit(2)
 
@@ -436,7 +436,7 @@ order by c desc
         with open(outfile, 'w') as f:
             subprocess.call(dumpcmd.split(), stdout=f, env=env)
 
-        print "Your backups has been created in '" + TODAYBACKUPPATH + "' directory."
+        print("Your backups has been created in '" + TODAYBACKUPPATH + "' directory.")
 
     def get_ip(self, gateway, netmask):
         """get spare ip"""
@@ -476,7 +476,7 @@ order by c desc
 
         ip = self.get_ip(gateway, netmask)
 
-        print 'Unprovisioning ' + str((id, host, vlan, vlanid, ip, netmask, gateway))
+        print('Unprovisioning ' + str((id, host, vlan, vlanid, ip, netmask, gateway)))
 
         self.set_host_conf(id, host, vlan, vlanid, ip, netmask, gateway)
         time.sleep(3)
@@ -505,31 +505,31 @@ if __name__ == '__main__':
     #print infradb.get_rack(103)
     pprint( infradb.get_hosts_by_rack(103) )
 
-    print infradb.get_dbuser_name()
-    print infradb.get_tables()
-    print infradb.get_database_name()
+    print(infradb.get_dbuser_name())
+    print(infradb.get_tables())
+    print(infradb.get_database_name())
     pprint (infradb.get_schema() )
 
     #print infradb.dump_json()
 
-    print infradb
+    print(infradb)
 
     infradb.get_spares()
-    print infradb.get_spares_count_by_sku('Database001')
-    print infradb.get_total_count()
+    print(infradb.get_spares_count_by_sku('Database001'))
+    print(infradb.get_total_count())
 
-    print infradb.get_cur()
-    print infradb.get_hosts()
+    print(infradb.get_cur())
+    print(infradb.get_hosts())
     #pprint (infradb.get_vlans())
     pprint (infradb.get_new_hosts())
     print('------------')
-    print infradb.get_unkicked_hosts()
+    print(infradb.get_unkicked_hosts())
     print('------------')
 
-    print infradb.get_unkicked_hosts()
+    print(infradb.get_unkicked_hosts())
     print('------------')
 
-    print infradb.get_unkicked_hosts()
+    print(infradb.get_unkicked_hosts())
     print('------------')
 
     pprint(infradb.get_available_skus_per_rack_in_bench())
@@ -538,8 +538,8 @@ if __name__ == '__main__':
     pprint(infradb.get_count_assigned_hosts_per_rack())
     print('---------------------')
 
-    print infradb.dump_mysql()
+    print(infradb.dump_mysql())
     print('----------------------')
 
-    print infradb.get_ids()
+    print(infradb.get_ids())
     sys.exit(0)

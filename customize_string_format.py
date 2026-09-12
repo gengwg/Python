@@ -31,6 +31,6 @@ from datetime import date
 d2 = date(2012, 12, 21)
 print(f'{d2}')
 print(f'{d2:%A, %B %d, %Y}')
-print('The end is {:%d %b %Y}. Goodbye'.format(d2))
+print(f'The end is {d2:%d %b %Y}. Goodbye')
 
 

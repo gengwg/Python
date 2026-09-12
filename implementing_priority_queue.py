@@ -24,7 +24,7 @@ if __name__ == '__main__':
             self.name = name
 
         def __repr__(self):
-            return 'Item({!r})'.format(self.name)
+            return f'Item({self.name!r})'
 
 
     q = PriorityQueue()
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     q.push(Item('spam'), 4)
     q.push(Item('grok'), 1)
 
-    print q.pop()
-    print q.pop()
-    print q.pop()
-    print q.pop()
+    print(q.pop())
+    print(q.pop())
+    print(q.pop())
+    print(q.pop())

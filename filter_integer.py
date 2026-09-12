@@ -14,4 +14,4 @@ ivals = filter(is_int, values)
 
 # print ivals
 for i in ivals:
-    print i
+    print(i)

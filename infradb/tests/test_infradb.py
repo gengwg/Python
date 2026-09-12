@@ -39,7 +39,7 @@ class TestInfraDB(unittest.TestCase):
     def disable_test_host_pingable(self, host=''):
         """Test if host is pingable"""
 
-        print host
+        print(host)
     	#host = self.data[0]['host']
 
         with open(os.devnull, 'wb') as devnull:

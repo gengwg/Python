@@ -6,10 +6,10 @@ A simple regular expression that can be used to parse server log files, in the C
 
 import re
 
-file = open("testdata", "r")
+file = open("testdata")
 
 p = re.compile(
-    '([^ ]*) ([^ ]*) ([^ ]*) \[([^]]*)\] "([^"]*)" ([^ ]*) ([^ ]*)'
+    r'([^ ]*) ([^ ]*) ([^ ]*) \[([^]]*)\] "([^"]*)" ([^ ]*) ([^ ]*)'
     )
 
 for line in file.readlines():
@@ -17,7 +17,7 @@ for line in file.readlines():
     if not m:
         continue
     host, ignore, user, date, request, status, size = m.groups()
-    print m.groups()
+    print(m.groups())
 
 """
 $ cat testdata

@@ -6,7 +6,7 @@ import MySQLdb
 
 db_info_cfg = './data/db_info.yaml'
 def db_connect(key):
-    with open(db_info_cfg, 'r') as f:
+    with open(db_info_cfg) as f:
         db_info = yaml.safe_load(f)
         db_host = db_info[key]['host']
         db_user = db_info[key]['user']
@@ -15,7 +15,7 @@ def db_connect(key):
     return MySQLdb.connect(host=db_host, user=db_user, passwd=db_pass, db=database)
 
 def main():
-    print 'This file should only be used as an import'
+    print('This file should only be used as an import')
 
 if __name__ == '__main__':
     main()

@@ -28,6 +28,6 @@ if __name__ == '__main__':
     import sys
     # findfile(sys.argv[1], sys.argv[2])
     if len(sys.argv) != 3:
-        print('Usage: {} dir seconds'.format(sys.argv[0]))
+        print(f'Usage: {sys.argv[0]} dir seconds')
         raise SystemExit(1)
     modified_within(sys.argv[1], float(sys.argv[2]))

@@ -55,6 +55,6 @@ import os
 
 for f in os.listdir("."):
     if f.endswith(".pdf"):
-        print("Original name: {}".format(f))
+        print(f"Original name: {f}")
         print("New name: {}".format(f.split("_", 2)[2]))
         os.rename(f, f.split("_", 2)[2])

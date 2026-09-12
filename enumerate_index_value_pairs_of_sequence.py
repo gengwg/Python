@@ -8,14 +8,14 @@ for idx, val in enumerate(my_list, 1):
 
 
 def parse_data(filename):
-    with open(filename, 'rt') as f:
+    with open(filename) as f:
         for lineno, line in enumerate(f, 1):
             fields = line.split()
             try:
                 count = int(fields[1])
                 # ... process data
             except ValueError as e:
-                print('Line {}: Parse error: {}'.format(lineno, e))
+                print(f'Line {lineno}: Parse error: {e}')
 
 
 # map words in a file to the lines in which they occur
@@ -23,7 +23,7 @@ from collections import defaultdict
 
 word_summary = defaultdict(list)
 
-with open('myfile.txt', 'r') as f:
+with open('myfile.txt') as f:
     lines = f.readlines()
 
 for idx, line in enumerate(lines, 1):
@@ -33,6 +33,6 @@ for idx, line in enumerate(lines, 1):
         word_summary[word].append(idx)
 
 for k, v in word_summary.items():
-    print '{}: {}'.format(k, v)
+    print(f'{k}: {v}')
 
 

@@ -47,9 +47,9 @@ def daemonize(pidfile, *, stdin='/dev/null', stdout='/dev/null', stderr='/dev/nu
 
 def main():
     import time
-    sys.stdout.write("Daemon started with pid {}\n".format(os.getpid()))
+    sys.stdout.write(f"Daemon started with pid {os.getpid()}\n")
     while True:
-        sys.stdout.write("Daemon is alive! {}\n".format(time.ctime()))
+        sys.stdout.write(f"Daemon is alive! {time.ctime()}\n")
         time.sleep(10)
 
 if __name__ == '__main__':
