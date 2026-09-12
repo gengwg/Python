@@ -1,46 +1,15 @@
 # Python
 Python Cookbooks and Examples
 
+## Running examples
 
-## Creating virtual environments
-
-### Install venv
-
-On Ubuntu/Debian:
-
-```
-apt-get install python3-venv
-```
-
-On CentOS 7, it's already installed together with the python3 package.
-
-### Create virtual environments
+Requires Python 3.12+. Dependencies are managed with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-# create virtual env
-python3 -m venv myvenv
+uv run fibonacci.py
 
-# activate virtual env
-$ source myvenv/bin/activate
-(myvenv) pi@host:~$
-
-# upgrade pip
-(myvenv) user@host:~$ python3 -m pip --version
-pip 9.0.1 from /home/pi/myvenv/lib/python3.5/site-packages (python 3.5)
-(myvenv) user@host:~$ python3 -m pip install --upgrade pip
-(myvenv) user@host:~$ python3 -m pip --version
-pip 20.2.2 from /home/pi/myvenv/lib/python3.5/site-packages/pip (python 3.5)
-
-# install package example
-(myvenv) pi@host:~$ python3 -m pip install requests
-# or equivalent
-(myvenv) user@host:~$ pip install requests
-
-# test import installed package
-(myvenv) pi@host:~$ python3 -c 'import requests'
-
-# deactivate virtual env
-(myvenv) pi@host:~$ deactivate
+# one-off dependency
+uv run --with requests python_requests_post.py
 ```
 
 ## Notes
@@ -61,17 +30,7 @@ a_value = {
 ### Start a simple HTTP server
 
 ```
-# Python 2.7
-python -m SimpleHTTPServer 7777
-
-# Python 3
-python -m http.server 7777
-```
-
-### pip install requirements.txt
-
-```
-python3 -m pip install -r requirements.txt
+python3 -m http.server 7777
 ```
 
 ### Always get short hostname
