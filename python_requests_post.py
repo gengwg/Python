@@ -26,4 +26,4 @@ headers={"Content-Type":"application/json"}
 r = requests.post(url = API_ENDPOINT, data = json.dumps(data), headers=headers)
 
 # extracting response text
-print r.text
+print(r.text)

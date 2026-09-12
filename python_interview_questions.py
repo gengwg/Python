@@ -40,23 +40,23 @@ a1(80)
 print('-' * 32)
 class B(object):
     def fn(self):
-        print 'B fn'
+        print('B fn')
     def __init__(self):
-        print "B INIT"
+        print("B INIT")
 
 
 class A(object):
     def fn(self):
-        print 'A fn'
+        print('A fn')
 
     def __new__(cls,a):
-            print "NEW", a
+            print("NEW", a)
             if a>10:
                 return super(A, cls).__new__(cls)
             return B()
 
     def __init__(self,a):
-        print "INIT", a
+        print("INIT", a)
 
 a1 = A(5)
 a1.fn()
@@ -68,19 +68,19 @@ print('-' * 32)
 
 ls = [1,2,3,4]
 list1 = [i for i in ls if i>2]
-print list1 # [3,4]
+print(list1) # [3,4]
 
 list2 = [i*2 for i in ls if i>2]
-print list2 # [6, 8]
+print(list2) # [6, 8]
 
 dic1 = {x: x**2 for x in (2, 4, 6)}
-print dic1  # {2: 4, 4: 16, 6, 36}
+print(dic1)  # {2: 4, 4: 16, 6, 36}
 
 dic2 = {x: 'item' + str(x**2) for x in (2, 4, 6)}
-print dic2  # {2: 'item4', '4': 'item16', 6: 'item36'}
+print(dic2)  # {2: 'item4', '4': 'item16', 6: 'item36'}
 
 set1 = {x for x in 'hello world' if x not in 'low level'}
-print set1  # set(['h', 'r', 'd'])
+print(set1)  # set(['h', 'r', 'd'])
 
 # 5. local/global variable
 
@@ -91,7 +91,7 @@ def f1():
     num = 20
 
 def f2():
-    print num
+    print(num)
 
 
 f2()
@@ -105,7 +105,7 @@ def f1():
     num = 20
 
 def f2():
-    print num
+    print(num)
 
 f2()
 f1()
@@ -117,7 +117,7 @@ print('-' * 32)
 a = 8
 b = 9
 a, b = b, a
-print a, b
+print(a, b)
 
 # 7
 print('-' * 32)
@@ -126,11 +126,11 @@ class A(object):
     def __init__(self,a,b):
         self.a1 = a
         self.b1 = b
-        print 'init'
+        print('init')
     def mydefault(self, *args):
-        print 'default: ' + str(args[0])
+        print('default: ' + str(args[0]))
     def __getattr__(self, name):
-        print "other fn:", name
+        print("other fn:", name)
         return self.mydefault
 
 a1 = A(10,20)
@@ -174,4 +174,4 @@ def strtest1(num):
         str+="X"
     return str
 
-print strtest1(100)
+print(strtest1(100))

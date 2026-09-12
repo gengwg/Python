@@ -10,5 +10,5 @@ def sublist(lst1, lst2):
                 sub_set = True
     return sub_set
 
-print sublist([1,2], [1, 2,5,3])
+print(sublist([1,2], [1, 2,5,3]))
 

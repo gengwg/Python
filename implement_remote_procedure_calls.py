@@ -18,7 +18,7 @@ class RPCHandler:
                 # Receive a message
                 func_name, args, kwargs = pickle.loads(connection.recv())
                 try:
-                    r = self._functions[func_name](*args, *kwargs)
+                    r = self._functions[func_name](*args, **kwargs)
                     connection.send(pickle.dumps(r))
                 except Exception as e:
                     connection.send(pickle.dumps(e))
@@ -73,19 +73,19 @@ class RPCProxy:
         return do_rpc
 
 # to use the proxy you wrap it around a connection to the server.
-
->>> from multiprocessing.connection import Client
->>> from client import RPCProxy
->>> c = Client(('localhost', 17000), authkey=b'peekaboo')
->>> proxy = RPCProxy(c)
->>> proxy.add(2,3)
-5
->>> proxy.sub(2,3)
--1
->>> proxy.sub([1,2],3)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/gengwg/Nextcloud/github/Python/client.py", line 12, in do_rpc
-    raise result
-TypeError: unsupported operand type(s) for -: 'list' and 'int'
+#
+# >>> from multiprocessing.connection import Client
+# >>> from client import RPCProxy
+# >>> c = Client(('localhost', 17000), authkey=b'peekaboo')
+# >>> proxy = RPCProxy(c)
+# >>> proxy.add(2,3)
+# 5
+# >>> proxy.sub(2,3)
+# -1
+# >>> proxy.sub([1,2],3)
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+#   File "/home/gengwg/Nextcloud/github/Python/client.py", line 12, in do_rpc
+#     raise result
+# TypeError: unsupported operand type(s) for -: 'list' and 'int'
 

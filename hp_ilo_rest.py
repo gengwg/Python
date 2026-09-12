@@ -64,7 +64,7 @@ class HPiLO:
         for host_id in ids:
             select_cmd = 'SELECT lom_ip, bios_config FROM %s WHERE id = %d' % (db_table, host_id)
             if verbose:
-                print select_cmd
+                print(select_cmd)
             cur.execute(select_cmd)
             hostinfo = cur.fetchone()
             if hostinfo:
@@ -112,13 +112,13 @@ class HPiLO:
 
     total_targets = len(targets)
     if verbose:
-        print '%s: Total targets: %s' % (operation, total_targets)
+        print('%s: Total targets: %s' % (operation, total_targets))
 
     count = 0
     for hosturi in targets:
       count += 1
       if verbose:
-          print 'Target: %s  [%s of %s]' % (hosturi, count, total_targets)
+          print('Target: %s  [%s of %s]' % (hosturi, count, total_targets))
 
       if not self.hosts[hosturi]['sessionpath'] and requireLogin \
               and operation != "login":
@@ -312,7 +312,7 @@ class HPiLO:
 
 
 def help():
-  print render_doc(HPiLO, "Help on %s")
+  print(render_doc(HPiLO, "Help on %s"))
 
 
 def main():

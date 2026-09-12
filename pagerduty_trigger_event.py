@@ -23,8 +23,8 @@ def trigger_incident(SV_SERVICE_KEY, DESCRIPTION):
         headers=headers,
         data=payload,
     )
-    print r.status_code
-    print r.text
+    print(r.status_code)
+    print(r.text)
 
 
 def main(service_key, desc):

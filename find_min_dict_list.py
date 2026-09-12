@@ -12,8 +12,8 @@ portfolio = [
 
 # generator argument
 min_shares = min(s['shares'] for s in portfolio)
-print min_shares
+print(min_shares)
 
 # key argument
 min_shares = min(portfolio, key=lambda x: x['shares'])
-print min_shares
+print(min_shares)

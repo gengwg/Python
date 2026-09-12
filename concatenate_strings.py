@@ -4,7 +4,7 @@ def sample():
     yield 'Not'
     yield 'SF?'
 
-print ' '.join(sample())
+print(' '.join(sample()))
 
 for part in sample():
-    print part
+    print(part)

@@ -33,6 +33,6 @@ for idx, line in enumerate(lines, 1):
         word_summary[word].append(idx)
 
 for k, v in word_summary.items():
-    print '{}: {}'.format(k, v)
+    print('{}: {}'.format(k, v))
 
 

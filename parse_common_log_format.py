@@ -17,7 +17,7 @@ for line in file.readlines():
     if not m:
         continue
     host, ignore, user, date, request, status, size = m.groups()
-    print m.groups()
+    print(m.groups())
 
 """
 $ cat testdata

@@ -23,12 +23,12 @@ def fibonacci2 (n):
 a = []
 for i in range(30):
     a.append(fibonacci2(i))
-print a
+print(a)
 
 
 # print first 10 fibonacci numbers
 x = [1,1]
-for i in xrange(10):
+for i in range(10):
     x.append(x[-1] + x[-2])
-print x
+print(x)
 
